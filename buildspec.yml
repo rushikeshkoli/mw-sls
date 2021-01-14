@@ -11,8 +11,8 @@ phases:
       - pip3 install --upgrade aws-sam-cli
       - sam --version
       # Installing project dependencies
-      - cd hello-world
-      - npm install
+      # - cd hello-world
+      # - npm install
   
   pre_build:
     commands:
