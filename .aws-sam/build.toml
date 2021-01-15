@@ -43,4 +43,11 @@ source_md5 = ""
 packagetype = "Zip"
 functions = ["SearchUserFunction"]
 
+[function_build_definitions.5a115ef9-fe5f-4ef5-82c9-725e4b62653b]
+codeuri = "get_user/"
+runtime = "python3.8"
+source_md5 = ""
+packagetype = "Zip"
+functions = ["GetUserFunction"]
+
 [layer_build_definitions]

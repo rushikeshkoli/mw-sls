@@ -1,11 +1,19 @@
 import json
 import boto3
+from boto3.dynamodb.conditions import Key
 
 
 # import requests
 
 def lambda_handler(event, context):
-    users = get_users()
+    print(event['pathParameters']['userId'])
+    username = event['pathParameters']['userId']
+    print(username)
+    # username = username['userId']
+    # username = 'rahul'
+    # print(username)
+    users = get_user(username)
+    # print(username)
     return {
         "statusCode": 200,
         "headers": {
@@ -20,15 +28,13 @@ def lambda_handler(event, context):
     }
 
 
-def get_users():
+def get_user(username):
     dynamodb = boto3.resource('dynamodb')
 
     users_table = dynamodb.Table('users_table1')
-    all_users = users_table.scan()
-    user_names = []
-    for user in all_users['Items']:
-        print(user['userName'])
-        user_names.append({'username': user['userName'], 'userId': user['userId']})
+    response = users_table.query(
+      KeyConditionExpression=Key('userId').eq(username)
+    )
 
-    print(user_names)
-    return user_names
+    print(response)
+    return response
