@@ -7,9 +7,9 @@ def lambda_handler(event, context):
   body = json.loads(event['body'])
   # print(event['body'])
   username = body['username']
-  image_url = 'url'
+  image_url = body['url']
   desc = body['desc']
-  add_user(username, image_url, desc)
+  update_user(username, image_url, desc)
   return {
     "statusCode": 200,
     "body": json.dumps({
@@ -17,18 +17,19 @@ def lambda_handler(event, context):
     }),
   }
 
-
-def add_user(username, image_url, desc):
+def update_user(username, image_url, desc):
   dynamodb = boto3.resource('dynamodb')
 
   usersTable = dynamodb.Table('users_table1')
 
-  usersTable.put_item(
-    Item={
-      'userId': str(uuid.uuid1()),
-      'userName': username,
-      'imageUrl': image_url,
-      'description': desc
-    }
+  usersTable.update_item(
+    Key={
+      'userId': username
+    },
+    UpdateExpression = "set imageUrl = :i, description = :d",
+    ExpressionAttributeValues= {
+      ":i": image_url,
+      ":d": desc
+    },
   )
   return

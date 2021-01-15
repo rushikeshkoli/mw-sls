@@ -41,31 +41,31 @@ Resources:
   UpdateUserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: list_users/
+      CodeUri: update_users/
       Handler: app.lambda_handler
       Runtime: python3.8
       Events:
         UpdateUser:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /user/{user_id}
+            Path: /user/update
             Method: post
   SearchUserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: list_users/
+      CodeUri: search_user/
       Handler: app.lambda_handler
       Runtime: python3.8
       Events:
         SearchUser:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /search/{user_id}
-            Method: get
+            Path: /search
+            Method: post
   DeleteUserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: list_users/
+      CodeUri: delete_user/
       Handler: app.lambda_handler
       Runtime: python3.8
       Events:

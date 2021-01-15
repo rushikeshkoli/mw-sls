@@ -13,7 +13,7 @@ codeuri = "list_users/"
 runtime = "python3.8"
 source_md5 = ""
 packagetype = "Zip"
-functions = ["ListUserFunction", "UpdateUserFunction", "SearchUserFunction", "DeleteUserFunction"]
+functions = ["ListUserFunction"]
 
 [function_build_definitions.11b425fa-0016-48f6-8f63-57c6b25aebb3]
 codeuri = "add_user/"
@@ -21,5 +21,26 @@ runtime = "python3.8"
 source_md5 = ""
 packagetype = "Zip"
 functions = ["AddUserFunction"]
+
+[function_build_definitions.b797fea7-7cc9-4632-9c65-7e5ee7325384]
+codeuri = "delete_user/"
+runtime = "python3.8"
+source_md5 = ""
+packagetype = "Zip"
+functions = ["DeleteUserFunction"]
+
+[function_build_definitions.945945bb-4366-40cb-8ad9-111483fdb8bb]
+codeuri = "update_users/"
+runtime = "python3.8"
+source_md5 = ""
+packagetype = "Zip"
+functions = ["UpdateUserFunction"]
+
+[function_build_definitions.50578848-3c14-4593-aa78-a6967805ed03]
+codeuri = "search_user/"
+runtime = "python3.8"
+source_md5 = ""
+packagetype = "Zip"
+functions = ["SearchUserFunction"]
 
 [layer_build_definitions]

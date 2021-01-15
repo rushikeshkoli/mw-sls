@@ -7,28 +7,21 @@ def lambda_handler(event, context):
   body = json.loads(event['body'])
   # print(event['body'])
   username = body['username']
-  image_url = 'url'
-  desc = body['desc']
-  add_user(username, image_url, desc)
+  delete_user(username)
   return {
     "statusCode": 200,
     "body": json.dumps({
-      "message": 'Success'
+      "message": 'Success',
     }),
   }
 
-
-def add_user(username, image_url, desc):
+def delete_user(username):
   dynamodb = boto3.resource('dynamodb')
 
   usersTable = dynamodb.Table('users_table1')
-
-  usersTable.put_item(
-    Item={
-      'userId': str(uuid.uuid1()),
-      'userName': username,
-      'imageUrl': image_url,
-      'description': desc
+  response = usersTable.delete_item(
+    Key = {
+      "userId": username
     }
   )
   return
