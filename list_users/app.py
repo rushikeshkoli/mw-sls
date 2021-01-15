@@ -8,6 +8,11 @@ def lambda_handler(event, context):
     users = get_users()
     return {
         "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET"
+        },
         "body": json.dumps({
             "message": ['a', 'b', 'c', 'd'],
             "users": users

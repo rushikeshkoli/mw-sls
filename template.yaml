@@ -38,7 +38,12 @@ Resources:
           Properties:
             Path: /hello
             Method: get
-            Cors: "'*'"
+            Cors:
+              AllowMethods: "'POST, GET, OPTIONS'"
+              AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              AllowOrigin: "'*'"
+              MaxAge: "'600'"
+              AllowCredentials: True
   UpdateUserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
