@@ -1,6 +1,6 @@
 # Welcome to your CDK TypeScript project!
 
-This is a blank project for TypeScript development with CDK.
+This is a codepipeline project for TypeScript development with CDK.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
@@ -12,3 +12,19 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
+
+
+**Note: Please create secret in secrete manager for github auth token**
+
+### Github Auth Token
+You can generate github token then create secret with any name and choose
+key-value pair. Enter `git` as your key and enter `your generated token value`
+as value
+
+Enter Generated ARN by after creating secret in `./pipeline/lib/pipeline-stack.ts` at 
+line 7 for value of ARN
+
+### Deploying the infrastructure
+*  To deploy first install dependencies using: `npm install`
+*  Build project using: `npm run build`
+*  To deploy the infrastructure run: `cdk deploy --all`

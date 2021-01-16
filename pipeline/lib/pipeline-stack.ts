@@ -3,9 +3,9 @@ import s3 = require('@aws-cdk/aws-s3');
 import codepipeline = require('@aws-cdk/aws-codepipeline');
 import codepipeline_actions = require('@aws-cdk/aws-codepipeline-actions');
 import codebuild = require('@aws-cdk/aws-codebuild');
-import {CfnOutput} from "@aws-cdk/core";
 
-const SEC = cdk.SecretValue.secretsManager('arn:aws:secretsmanager:ap-south-1:660829820053:secret:mysec-kjgGr5', {jsonField: 'git'})
+const ARN = "arn:aws:secretsmanager:ap-south-1:660829820053:secret:mysec-kjgGr5"
+const SEC = cdk.SecretValue.secretsManager(ARN, {jsonField: 'git'})
 
 
 export class PipelineStack extends cdk.Stack {
@@ -165,6 +165,6 @@ export class FrontendStack extends cdk.Stack {
         }),
       ],
     });
-    new cdk.CfnOutput(this, 'url', {value: websiteBucket.bucketDomainName})
+    new cdk.CfnOutput(this, 'url', {value: websiteBucket.bucketWebsiteDomainName})
   }
 }
