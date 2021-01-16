@@ -16,8 +16,10 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 **Note: Please create secret in secrete manager for github auth token**
 
-### Github Auth Token
-You can generate github token then create secret with any name and choose
+### Github Personal Access Token
+You can generate github token by visiting [Github]('https://github.com/settings/tokens/new').
+Please tick `repo` and `admin:repo_hook` under scopes.
+Then create AWS secret with any name and choose
 key-value pair. Enter `git` as your key and enter `your generated token value`
 as value
 
