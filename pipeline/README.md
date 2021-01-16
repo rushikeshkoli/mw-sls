@@ -34,7 +34,7 @@ Also modify `GITHUB_OWNER`, `GITHUB_REPO_BACKEND`, `GITHUB_REPO_FRONTEND`.
 You can take look at already present values. Enter only repository value without domain and username.
 
 ### Deploying the infrastructure
-*  To deploy first install dependencies using: `npm install`
+*  To deploy first install dependencies using: `npm install`. (errors might occur for dev dependencies. You can continue to next step)
 *  Build project using: `npm run build`
 *  To deploy the infrastructure run: `cdk deploy --all`
 *  To get backend url check output in `sam-app` stack in cloudformation.
