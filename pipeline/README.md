@@ -36,7 +36,7 @@ line 7 for value of ARN
 *  Build project using: `npm run build`
 *  To deploy the infrastructure run: `cdk deploy --all`
 *  To get backend url check output in `sam-app` stack in cloudformation.
-*  To get S3 url check output in `pipeline` stack.
+*  To get S3 url check output in `frontend` stack.
 
 ### Configuring Frontend
 * Visit frontend: [React]('https://github.com/rushikeshkoli/mw-react')
