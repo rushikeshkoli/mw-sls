@@ -7,6 +7,9 @@ This project contains source code and supporting files for a serverless applicat
 - tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
+### Architecture:
+![aws image](./diagram.png)
+
 ## Deploy the sample application To AWS using CDK
 You have to change your working directory to pipeline: `cd pipeline`
 Read the instruction from that directory: [Instruction](./pipeline/README.md)
