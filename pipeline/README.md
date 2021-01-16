@@ -20,7 +20,7 @@ run `npm install -g aws-cdk`
 **Note: Please create secret in secrete manager for github auth token**
 
 ### Github Personal Access Token
-You can generate github token by visiting [Github]('https://github.com/settings/tokens/new').
+You can generate github token by visiting [Github](https://github.com/settings/tokens/new).
 Please tick `repo` and `admin:repo_hook` under scopes.
 Then create AWS secret with any name and choose
 key-value pair. Enter `git` as your key and enter `your generated token value`
@@ -39,5 +39,5 @@ line 7 for value of ARN
 *  To get S3 url check output in `frontend` stack.
 
 ### Configuring Frontend
-* Visit frontend: [React]('https://github.com/rushikeshkoli/mw-react')
+* Visit frontend: [React](https://github.com/rushikeshkoli/mw-react)
 * Edit .env file with backend url from above step.
