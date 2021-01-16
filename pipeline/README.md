@@ -29,7 +29,9 @@ as value
 Enter key and value without quotes in AWS console
 
 Enter Generated ARN by after creating secret in `./pipeline/lib/pipeline-stack.ts` at 
-line 7 for value of ARN
+line 7 for value of `ARN`.
+Also modify `GITHUB_OWNER`, `GITHUB_REPO_BACKEND`, `GITHUB_REPO_FRONTEND`. 
+You can take look at already present values. Enter only repository value without domain and username.
 
 ### Deploying the infrastructure
 *  To deploy first install dependencies using: `npm install`

@@ -5,6 +5,9 @@ import codepipeline_actions = require('@aws-cdk/aws-codepipeline-actions');
 import codebuild = require('@aws-cdk/aws-codebuild');
 
 const ARN = "arn:aws:secretsmanager:ap-south-1:660829820053:secret:mysec-kjgGr5"
+const GITHUB_OWNER = 'rushikeshkoli'
+const GITHUB_REPO_BACKEND = 'mw-sls'
+const GITHUB_REPO_FRONTEND = 'mw-react'
 const SEC = cdk.SecretValue.secretsManager(ARN, {jsonField: 'git'})
 
 
@@ -28,9 +31,9 @@ export class PipelineStack extends cdk.Stack {
       actions: [
         new codepipeline_actions.GitHubSourceAction({
           actionName: 'Github_Source',
-          repo: 'mw-sls',
+          repo: GITHUB_REPO_BACKEND,
           output: sourceOutput,
-          owner: 'rushikeshkoli',
+          owner: GITHUB_OWNER,
           oauthToken: SEC,
           branch: 'master'
         }),
@@ -114,9 +117,9 @@ export class FrontendStack extends cdk.Stack {
       actions: [
         new codepipeline_actions.GitHubSourceAction({
           actionName: 'Github_Source',
-          repo: 'mw-react',
+          repo: GITHUB_REPO_FRONTEND,
           output: sourceOutput,
-          owner: 'rushikeshkoli',
+          owner: GITHUB_OWNER,
           oauthToken: SEC,
           branch: 'master'
         }),
