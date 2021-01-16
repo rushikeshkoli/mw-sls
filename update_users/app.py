@@ -7,11 +7,16 @@ def lambda_handler(event, context):
   body = json.loads(event['body'])
   # print(event['body'])
   username = body['username']
-  image_url = body['url']
+  image_url = 'url'
   desc = body['desc']
   update_user(username, image_url, desc)
   return {
     "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "*"
+    },
     "body": json.dumps({
       "message": 'Success'
     }),

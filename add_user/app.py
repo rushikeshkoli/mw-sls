@@ -9,11 +9,38 @@ def lambda_handler(event, context):
   username = body['username']
   image_url = 'url'
   desc = body['desc']
-  add_user(username, image_url, desc)
+  dynamodb = boto3.resource('dynamodb')
+
+  usersTable = dynamodb.Table('users_table1')
+  response = usersTable.scan(
+    FilterExpression= 'userName = :r',
+    ExpressionAttributeValues= {
+      ':r': username
+    }
+  )
+  if len(response['Items']) > 0:
+    return {
+      "statusCode": 200,
+      "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "*"
+      },
+      "body": json.dumps({
+        "message": 'failure'
+      }),
+    }
+  res = add_user(username, image_url, desc)
   return {
     "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "*"
+    },
     "body": json.dumps({
-      "message": 'Success'
+      "message": 'Success',
+      "user": res
     }),
   }
 
@@ -31,4 +58,11 @@ def add_user(username, image_url, desc):
       'description': desc
     }
   )
-  return
+  response = usersTable.scan(
+    FilterExpression= 'userName = :r',
+    ExpressionAttributeValues= {
+      ':r': username
+    }
+  )
+  # print(response)
+  return response['Items'][0]

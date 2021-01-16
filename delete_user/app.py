@@ -10,6 +10,11 @@ def lambda_handler(event, context):
   delete_user(username)
   return {
     "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "*"
+    },
     "body": json.dumps({
       "message": 'Success',
     }),

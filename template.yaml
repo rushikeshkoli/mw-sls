@@ -11,7 +11,9 @@ Globals:
     Timeout: 3
   Api:
     EndpointConfiguration: REGIONAL
-    Cors: "'*'"
+    Cors:
+      AllowHeaders: "'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'" 
+      AllowOrigin: "'*'"
 
 Resources:
   HelloWorldFunction:
@@ -56,6 +58,7 @@ Resources:
           Properties:
             Path: /user/{userId}
             Method: get
+
   UpdateUserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:

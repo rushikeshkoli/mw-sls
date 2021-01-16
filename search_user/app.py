@@ -11,11 +11,10 @@ def lambda_handler(event, context):
   print(username)
   res = search_user(username)
   return {
-    "statusCode": 200,
     "headers": {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
+        "Access-Control-Allow-Headers": "content-type",
+        "Access-Control-Allow-Methods": "*"
     },
     "body": json.dumps({
       "message": 'Success',
@@ -33,4 +32,4 @@ def search_user(username):
       ':r': username
     }
   )
-  return response
+  return response['Items'][0]

@@ -36,5 +36,5 @@ def get_user(username):
       KeyConditionExpression=Key('userId').eq(username)
     )
 
-    print(response)
-    return response
+    print(response['Items'])
+    return response['Items'][0]
