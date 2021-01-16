@@ -26,6 +26,8 @@ Then create AWS secret with any name and choose
 key-value pair. Enter `git` as your key and enter `your generated token value`
 as value
 
+Enter key and value without quotes in AWS console
+
 Enter Generated ARN by after creating secret in `./pipeline/lib/pipeline-stack.ts` at 
 line 7 for value of ARN
 
